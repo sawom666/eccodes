@@ -124,6 +124,8 @@ if( HAVE_BUILD_TOOLS )
         filter_transient_darray
         grib_ecpoint
         grib_s2s
+        grib_crra
+        grib_uerra
         grib_fire
         grib_generalised_tiles
         # grib_true_imagery
@@ -178,6 +180,8 @@ if( HAVE_BUILD_TOOLS )
         bufr_ecc-517
         bufr_ecc-2011
         bufr_ecc-2153
+        bufr_ecc-2300
+        bufr_delayed_replication
         grib_efas
         grib_sh_imag
         grib_spectral
@@ -192,6 +196,7 @@ if( HAVE_BUILD_TOOLS )
         grib_cmp_paramtype
         grib_cmp_timeSpan
         grib_stattype
+        grib_ecc-2000
         grib_ecc-2221
         grib_ecc-2218
         grib_ecc-2240
@@ -233,7 +238,6 @@ if( HAVE_BUILD_TOOLS )
         grib_partial_geometry
         grib_true_imagery
         grib_headers_only
-        grib_uerra
         grib_unpack_subarray
         grib_count
         grib_clone_headers_only
