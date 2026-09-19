@@ -78,6 +78,7 @@ list(APPEND test_c_bins
     grib_sh_imag
     grib_spectral
     grib_lam_bf
+    grib_grib2mars_replay
     grib_lam_gp)
 
 if( eccodes_HAVE_ECKIT_GEO AND eccodes_HAVE_GEOGRAPHY )
@@ -449,6 +450,7 @@ if( HAVE_BUILD_TOOLS )
         grib_neg_fctime
         codes_split_file
         grib_lc-gcr
+        grib_grib2mars_replay
         grib_mars_keys1
         grib_mars_keys2)
 
@@ -517,6 +519,10 @@ if( HAVE_BUILD_TOOLS )
                                    eccodes_download_metars eccodes_download_gts
                                    eccodes_download_lcgcr_gribs eccodes_download_gridspec_gribs )
     endforeach()
+
+    if( ENABLE_EXTRA_TESTS )
+        set_tests_properties( eccodes_t_grib_grib2mars_replay PROPERTIES DISABLED TRUE)
+    endif()
 
     if( HAVE_FORTRAN AND ENABLE_EXTRA_TESTS )
         set_tests_properties( eccodes_t_bufr_dump_encode_fortran PROPERTIES TIMEOUT 2500 )
@@ -670,6 +676,6 @@ if( eccodes_HAVE_ECKIT_GEO AND eccodes_HAVE_GEOGRAPHY )
                       CONDITION ENABLE_EXTRA_TESTS
                       LIBS eccodes eckit_geo
                       TEST_DEPENDS eccodes_download_gridspec_gribs
-                      WORKING_DIRECTORY "${TESTS_DATA_DIR}"
+                      ARGS "${TESTS_DATA_DIR}"
                       ENVIRONMENT ECCODES_ECKIT_GEO=1 )
 endif()
